@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SCSX Corretora de Seguros - Especialistas em proteção patrimonial, seguros auto, saúde, vida e grandes riscos.">
+    <meta name="keywords" content="seguros, corretora, risco, auto, saúde, embarcações, SCSX, proteção patrimonial">
+    <meta name="author" content="SCSX Corretora">
+    <meta property="og:title" content="SCSX - Excelência em Seguros">
+    <meta property="og:description" content="Proteção patrimonial sob medida com a expertise dos maiores do mercado.">
+    <title>SCSX | Corretora de Seguros</title>
+
+    <!-- Google Fonts: Inter & Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS (via CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        /* CORES BASEADAS NO LOGO (Ajuste os Hex se necessário) */
+                        scsx: {
+                            dark: '#0f172a', /* Azul Escuro Profundo - Cor Base */
+                            primary: '#1e293b', /* Azul Petróleo - Secundária */
+                            gold: '#c5a059', /* Dourado/Bronze - Acento do Logo */
+                            goldhover: '#b08d4b',
+                            light: '#f8fafc',
+                        }
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to right bottom, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Utilities for Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .nav-blur {
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        /* Hover card effect */
+        .product-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* Floating WhatsApp Pulse */
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .whatsapp-pulse {
+            animation: pulse-green 2s infinite;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-600 bg-white antialiased overflow-x-hidden selection:bg-scsx-gold selection:text-white">
+
+    <!-- Header / Navigation -->
+    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 nav-blur border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-display font-bold text-2xl tracking-tighter text-scsx-dark">
+                        SCSX<span class="text-scsx-gold">.</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-sm font-medium text-gray-700 hover:text-scsx-gold transition-colors">Home</a>
+                    <a href="#produtos" class="text-sm font-medium text-gray-700 hover:text-scsx-gold transition-colors">Soluções</a>
+                    <a href="#sobre" class="text-sm font-medium text-gray-700 hover:text-scsx-gold transition-colors">Sobre Nós</a>
+                    <a href="#parceiros" class="text-sm font-medium text-gray-700 hover:text-scsx-gold transition-colors">Parceiros</a>
+                </nav>
+
+                <!-- CTA Header -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#contato" class="px-5 py-2.5 text-sm font-medium text-white bg-scsx-dark hover:bg-scsx-primary transition-colors rounded-sm shadow-sm">
+                        Fale com a SCSX
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-scsx-dark focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-scsx-gold hover:bg-gray-50">Home</a>
+                <a href="#produtos" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-scsx-gold hover:bg-gray-50">Soluções</a>
+                <a href="#sobre" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-scsx-gold hover:bg-gray-50">Sobre Nós</a>
+                <a href="#contato" class="block px-3 py-2 text-base font-medium text-scsx-gold font-bold">Fale Conosco</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center bg-hero-pattern bg-cover bg-center bg-no-repeat bg-fixed">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 fade-in-up">
+            <span class="inline-block py-1 px-3 rounded-full bg-scsx-gold/20 text-scsx-gold text-xs font-semibold tracking-wide uppercase mb-4 border border-scsx-gold/30 backdrop-blur-sm">
+                Seguros & Riscos Especiais
+            </span>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-6 leading-tight">
+                Excelência em Proteção <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-scsx-gold to-yellow-200">Patrimonial e Corporativa</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-300 font-light mb-10">
+                Soluções desenhadas para quem exige o máximo em segurança. Garantimos a tranquilidade do seu legado e a continuidade dos seus negócios.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#produtos" class="px-8 py-4 text-base font-medium text-scsx-dark bg-white hover:bg-gray-100 transition-all rounded-sm shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    Nossas Soluções
+                </a>
+                <a href="https://wa.me/5511937696937?text=Ol%C3%A1%2C%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o%20exclusiva%20SCSX." target="_blank" class="px-8 py-4 text-base font-medium text-white border border-white hover:bg-white/10 transition-all rounded-sm flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp"></i> Atendimento Especialista
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white/50">
+            <i class="fa-solid fa-chevron-down text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Products Section (Moved UP) -->
+    <section id="produtos" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
+                <h2 class="text-sm font-bold text-scsx-gold uppercase tracking-widest mb-2">Portfólio Completo</h2>
+                <h3 class="text-3xl md:text-4xl font-display font-bold text-scsx-dark">Proteção 360º para sua vida e negócios</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card: Auto -->
+                <article class="product-card group bg-white p-8 rounded-sm shadow-sm border border-gray-100 fade-in-up">
+                    <div class="w-14 h-14 bg-slate-100 rounded-full flex items-center justify-center text-scsx-dark mb-6 group-hover:bg-scsx-dark group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-car text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-display font-bold text-scsx-dark mb-3">Auto</h4>
+                    <p class="text-gray-600 mb-6 text-sm leading-relaxed">
+                        Segurança na estrada com coberturas para veículos de luxo e blindados. Assistência executiva e carro reserva compatível.
+                    </p>
+                    <a href="#contato" class="inline-flex items-center text-sm font-semibold text-scsx-gold hover:text-scsx-dark transition-colors">
+                        Cotar Agora <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </article>
+
+                <!-- Card: Residencial -->
+                <article class="product-card group bg-white p-8 rounded-sm shadow-sm border border-gray-100 fade-in-up" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 bg-slate-100 rounded-full flex items-center justify-center text-scsx-dark mb-6 group-hover:bg-scsx-dark group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-house-chimney text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-display font-bold text-scsx-dark mb-3">Residencial</h4>
+                    <p class="text-gray-600 mb-6 text-sm leading-relaxed">
+                        Seu santuário seguro. Coberturas para obras de arte, jóias e responsabilidade civil familiar.
+                    </p>
+                    <a href="#contato" class="inline-flex items-center text-sm font-semibold text-scsx-gold hover:text-scsx-dark transition-colors">
+                        Proteger Imóvel <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </article>
+
+                <!-- Card: Saúde -->
+                <article class="product-card group bg-white p-8 rounded-sm shadow-sm border border-gray-100 fade-in-up" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 bg-slate-100 rounded-full flex items-center justify-center text-scsx-dark mb-6 group-hover:bg-scsx-dark group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-heart-pulse text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-display font-bold text-scsx-dark mb-3">Saúde & Vida</h4>
+                    <p class="text-gray-600 mb-6 text-sm leading-relaxed">
+                        Acesso aos melhores hospitais (Sírio, Einstein). Estratégias de sucessão e blindagem financeira.
+                    </p>
+                    <a href="#contato" class="inline-flex items-center text-sm font-semibold text-scsx-gold hover:text-scsx-dark transition-colors">
+                        Consultar Planos <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </article>
+
+                <!-- Card: Embarcações -->
+                <article class="product-card group bg-white p-8 rounded-sm shadow-sm border border-gray-100 fade-in-up">
+                    <div class="w-14 h-14 bg-slate-100 rounded-full flex items-center justify-center text-scsx-dark mb-6 group-hover:bg-scsx-dark group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-ship text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-display font-bold text-scsx-dark mb-3">Embarcações</h4>
+                    <p class="text-gray-600 mb-6 text-sm leading-relaxed">
+                        Cobertura all-risk para lanchas, iates e veleiros, incluindo responsabilidade civil e regatas.
+                    </p>
+                    <a href="#contato" class="inline-flex items-center text-sm font-semibold text-scsx-gold hover:text-scsx-dark transition-colors">
+                        Solicitar Cotação <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </article>
+
+                <!-- Card: Bike -->
+                <article class="product-card group bg-white p-8 rounded-sm shadow-sm border border-gray-100 fade-in-up" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 bg-slate-100 rounded-full flex items-center justify-center text-scsx-dark mb-6 group-hover:bg-scsx-dark group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-bicycle text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-display font-bold text-scsx-dark mb-3">Bike</h4>
+                    <p class="text-gray-600 mb-6 text-sm leading-relaxed">
+                        Proteção para equipamentos de alta performance (Speed, MTB, Triathlon) contra roubo e acidentes.
+                    </p>
+                    <a href="#contato" class="inline-flex items-center text-sm font-semibold text-scsx-gold hover:text-scsx-dark transition-colors">
+                        Simular Agora <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </article>
+
+                <!-- Card: Viagem -->
+                <article class="product-card group bg-white p-8 rounded-sm shadow-sm border border-gray-100 fade-in-up" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 bg-slate-100 rounded-full flex items-center justify-center text-scsx-dark mb-6 group-hover:bg-scsx-dark group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-plane-departure text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-display font-bold text-scsx-dark mb-3">Viagem Global</h4>
+                    <p class="text-gray-600 mb-6 text-sm leading-relaxed">
+                        Explore o mundo. Coberturas elevadas para despesas médicas no exterior e extravio de bagagem.
+                    </p>
+                    <a href="#contato" class="inline-flex items-center text-sm font-semibold text-scsx-gold hover:text-scsx-dark transition-colors">
+                        Viajar Seguro <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section & KPIs -->
+    <section id="sobre" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div class="mb-12 lg:mb-0 fade-in-up">
+                    <div class="inline-flex items-center space-x-2 text-scsx-gold font-bold mb-4">
+                        <span class="w-8 h-[2px] bg-scsx-gold"></span>
+                        <span class="uppercase tracking-widest text-xs">Quem Somos</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-display font-bold text-scsx-dark mb-6">
+                        Seu Family Office <br>de Risco.
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        A SCSX atua como uma extensão do seu planejamento financeiro. Nossa metodologia de <strong>Family Office de Risco</strong> analisa profundamente sua exposição para criar blindagens que transcendem apólices comuns.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Não vendemos apenas seguros; entregamos a certeza de que seu patrimônio está protegido pelas melhores seguradoras do mundo, com uma curadoria exclusiva de produtos.
+                    </p>
+                </div>
+                <div class="relative fade-in-up" style="transition-delay: 200ms;">
+                    <div class="absolute -top-4 -left-4 w-full h-full bg-scsx-gold/10 rounded-sm z-0"></div>
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1632&q=80" alt="Equipe SCSX em reunião executiva" class="relative z-10 w-full rounded-sm shadow-xl grayscale hover:grayscale-0 transition-all duration-700">
+                </div>
+            </div>
+
+            <!-- Enhanced KPIs Section -->
+            <div class="mt-20 border-t border-gray-100 pt-16 fade-in-up">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-gray-100">
+                    <div class="p-4">
+                        <div class="text-4xl md:text-5xl font-display font-bold text-scsx-gold mb-2">2.500+</div>
+                        <div class="text-sm text-gray-500 font-medium uppercase tracking-wide">Clientes Ativos</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="text-4xl md:text-5xl font-display font-bold text-scsx-gold mb-2">24/7</div>
+                        <div class="text-sm text-gray-500 font-medium uppercase tracking-wide">Atendimento Boutique</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="text-4xl md:text-5xl font-display font-bold text-scsx-gold mb-2">30+</div>
+                        <div class="text-sm text-gray-500 font-medium uppercase tracking-wide">Parceiros Globais</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="text-4xl md:text-5xl font-display font-bold text-scsx-gold mb-2">R$ 500M+</div>
+                        <div class="text-sm text-gray-500 font-medium uppercase tracking-wide">Valor Segurado</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section (Copy focused) -->
+    <section id="parceiros" class="py-20 bg-slate-50 border-y border-gray-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in-up">
+            <h3 class="text-2xl md:text-3xl font-display font-bold text-scsx-dark mb-6">Acesso Global, Atuação Local</h3>
+            <p class="text-xl text-gray-600 leading-relaxed">
+                Nossa independência nos permite conectar você às seguradoras e resseguradoras mais sólidas do planeta. 
+                Trabalhamos em parceria estratégica com os maiores players do mercado (como <span class="text-scsx-primary font-semibold">Chubb, Berkley, Porto, Tokio Marine, Akad</span> e outras), 
+                garantindo que sua apólice tenha o lastro financeiro necessário para suportar qualquer eventualidade, sem conflitos de interesse.
+            </p>
+            <div class="mt-10 flex justify-center space-x-6 text-scsx-gold/50">
+                <i class="fa-solid fa-globe text-4xl"></i>
+                <i class="fa-solid fa-handshake text-4xl"></i>
+                <i class="fa-solid fa-building-columns text-4xl"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="py-24 bg-scsx-dark relative overflow-hidden">
+        <!-- Abstract Bg Shape -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-white/5 skew-x-12 transform origin-top-right"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16">
+                <!-- Contact Info -->
+                <div class="mb-12 lg:mb-0 text-white fade-in-up">
+                    <h2 class="text-3xl md:text-4xl font-display font-bold mb-6">Vamos conversar sobre o seu futuro?</h2>
+                    <p class="text-gray-400 mb-8 text-lg">
+                        Preencha o formulário e um de nossos especialistas entrará em contato em até 2 horas úteis.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <i class="fa-brands fa-whatsapp text-scsx-gold text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-bold">WhatsApp Direto</h4>
+                                <p class="text-gray-400 text-sm hover:text-white transition-colors">
+                                    <a href="https://wa.me/5511937696937">+55 11 93769-6937</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fa-regular fa-envelope text-scsx-gold text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-bold">E-mail</h4>
+                                <p class="text-gray-400 text-sm">atendimento@scsx.com.br</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fa-solid fa-shield-halved text-scsx-gold text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-bold">Dados Protegidos</h4>
+                                <p class="text-gray-400 text-sm">Suas informações estão seguras conosco. Respeitamos a LGPD.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="bg-white p-8 rounded-sm shadow-2xl fade-in-up" style="transition-delay: 200ms;">
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="nome" class="block text-sm font-medium text-gray-700 mb-1">Nome Completo</label>
+                                <input type="text" id="nome" required class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:ring-2 focus:ring-scsx-gold focus:border-transparent outline-none transition-all" placeholder="Seu nome">
+                            </div>
+                            <div>
+                                <label for="telefone" class="block text-sm font-medium text-gray-700 mb-1">Telefone / WhatsApp</label>
+                                <input type="tel" id="telefone" required class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:ring-2 focus:ring-scsx-gold focus:border-transparent outline-none transition-all" placeholder="(11) 99999-9999">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">E-mail Corporativo ou Pessoal</label>
+                            <input type="email" id="email" required class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:ring-2 focus:ring-scsx-gold focus:border-transparent outline-none transition-all" placeholder="seu@email.com">
+                        </div>
+
+                        <div>
+                            <label for="interesse" class="block text-sm font-medium text-gray-700 mb-1">Interesse Principal</label>
+                            <select id="interesse" class="w-full px-4 py-3 border border-gray-300 rounded-sm focus:ring-2 focus:ring-scsx-gold focus:border-transparent outline-none transition-all bg-white">
+                                <option value="" disabled selected>Selecione uma opção...</option>
+                                <option value="auto">Seguro Auto Premium</option>
+                                <option value="residencia">Seguro Residencial</option>
+                                <option value="saude">Saúde & Vida</option>
+                                <option value="bike">Bike Performance</option>
+                                <option value="nautico">Embarcações</option>
+                                <option value="empresarial">Empresarial / D&O</option>
+                                <option value="agro">Agro</option>
+                                <option value="outros">Outros Riscos</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="w-full bg-scsx-dark text-white font-bold py-4 px-6 rounded-sm hover:bg-scsx-primary transition-all shadow-lg transform hover:-translate-y-1">
+                            SOLICITAR COTAÇÃO
+                        </button>
+                        <p class="text-xs text-center text-gray-400 mt-4">Ao enviar, você concorda com nossa Política de Privacidade.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <a href="#" class="font-display font-bold text-2xl tracking-tighter text-white mb-4 block">
+                        SCSX<span class="text-scsx-gold">.</span>
+                    </a>
+                    <p class="text-sm text-slate-500">
+                        Av. Faria Lima, São Paulo - SP <br>
+                        Atendimento em todo o Brasil.
+                    </p>
+                </div>
+                <!-- Ampliado -->
+                <div class="md:col-span-2">
+                    <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-wider">Soluções Completas</h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="#" class="hover:text-scsx-gold transition-colors">Auto Premium</a></li>
+                            <li><a href="#" class="hover:text-scsx-gold transition-colors">Residencial & Obras de Arte</a></li>
+                            <li><a href="#" class="hover:text-scsx-gold transition-colors">Vida & Sucessão</a></li>
+                            <li><a href="#" class="hover:text-scsx-gold transition-colors">Náutico & Aeronáutico</a></li>
+                        </ul>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="#" class="hover:text-scsx-gold transition-colors">Empresarial & D&O</a></li>
+                            <li><a href="#" class="hover:text-scsx-gold transition-colors">Riscos Cibernéticos (Cyber)</a></li>
+                            <li><a href="#" class="hover:text-scsx-gold transition-colors">Seguro Agro</a></li>
+                            <li><a href="#" class="hover:text-scsx-gold transition-colors">Responsabilidade Civil</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase text-xs tracking-wider">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-scsx-gold transition-colors"><i class="fa-brands fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="text-white hover:text-scsx-gold transition-colors"><i class="fa-brands fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-white hover:text-scsx-gold transition-colors"><i class="fa-brands fa-facebook fa-lg"></i></a>
+                    </div>
+                    <div class="mt-6 text-sm">
+                         <a href="#" class="hover:text-scsx-gold transition-colors">Política de Privacidade</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-900 pt-8 text-center text-xs text-slate-600">
+                &copy; 2025 SCSX Corretora de Seguros. Todos os Direitos Reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5511937696937?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20SCSX." target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:bg-[#20bd5a] transition-all transform hover:scale-110 whatsapp-pulse flex items-center justify-center">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- JavaScript Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Mobile Menu Toggle
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+
+            // Smooth Scroll for Anchor Links (with offset for fixed header)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    menu.classList.add('hidden'); // Close mobile menu on click
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement){
+                        const headerOffset = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
+                });
+            });
+
+            // Intersection Observer for Fade-in Animation
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-up').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Form Submission Handler (Mock)
+            const form = document.getElementById('contactForm');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Get values
+                const nome = document.getElementById('nome').value;
+                const interesse = document.getElementById('interesse').value;
+
+                // Visual Feedback
+                const btn = form.querySelector('button');
+                const originalText = btn.innerText;
+                
+                btn.innerText = 'ENVIANDO...';
+                btn.classList.add('opacity-75', 'cursor-not-allowed');
+                
+                // Simulate API call to Bitrix24/Email
+                setTimeout(() => {
+                    alert(`Obrigado, ${nome}! Recebemos sua solicitação sobre "${interesse}". Um especialista entrará em contato em breve.`);
+                    form.reset();
+                    btn.innerText = 'ENVIADO COM SUCESSO';
+                    btn.classList.remove('bg-scsx-dark');
+                    btn.classList.add('bg-green-600');
+                    
+                    setTimeout(() => {
+                        btn.innerText = originalText;
+                        btn.classList.remove('opacity-75', 'cursor-not-allowed', 'bg-green-600');
+                        btn.classList.add('bg-scsx-dark');
+                    }, 3000);
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>
