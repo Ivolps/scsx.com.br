@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="SCSX Corretora de Seguros - Especialistas em proteção patrimonial e corporativa com atendimento de excelência.">
     <title>SCSX | Corretora de Seguros</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://images.unsplash.com/photo-1767527468191-b485ca5046df?q=80&w=32&h=32&auto=format&fit=crop">
 
     <!-- Google Fonts: Inter & Anek Bangla -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +39,7 @@
                         }
                     },
                     backgroundImage: {
-                        'hero-pattern': "linear-gradient(to bottom, rgba(59, 42, 34, 0.7), rgba(59, 42, 34, 0.9)), url('https://images.unsplash.com/photo-1767365217293-780b383c608f?q=80&w=2301&auto=format&fit=crop')",
+                        'hero-pattern': "linear-gradient(to bottom, rgba(59, 42, 34, 0.75), rgba(59, 42, 34, 0.95)), url('https://images.unsplash.com/photo-1767365217293-780b383c608f?q=80&w=2301&auto=format&fit=crop')",
                     }
                 }
             }
@@ -50,35 +53,34 @@
         .nav-blur { backdrop-filter: blur(12px); background-color: rgba(255, 255, 255, 0.95); }
         .product-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid #f1f1f1; }
         .product-card:hover { transform: translateY(-5px); border-color: #c2a07a; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05); }
-        .logo-header { height: 48px; width: auto; object-fit: contain; }
+        
         @keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
         .whatsapp-pulse { animation: pulse-green 2s infinite; }
-        #aiModal { display: none; position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); }
+        #aiModal { display: none; position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); }
     </style>
 </head>
 <body class="font-sans text-slate-600 bg-white antialiased overflow-x-hidden selection:bg-scsx-gold selection:text-white">
 
     <!-- Header -->
-    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 nav-blur border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0">
-                    <a href="#" class="flex items-center">
-                        <img src="Logo  SCSX (300 x 300 px) (1.png" alt="SCSX Seguros" class="logo-header">
-                    </a>
-                </div>
-                <nav class="hidden md:flex space-x-10">
-                    <a href="#home" class="text-[11px] font-bold text-gray-800 hover:text-scsx-gold transition-colors uppercase tracking-[0.2em]">Home</a>
-                    <a href="#sobre" class="text-[11px] font-bold text-gray-800 hover:text-scsx-gold transition-colors uppercase tracking-[0.2em]">Quem Somos</a>
-                    <a href="#produtos" class="text-[11px] font-bold text-gray-800 hover:text-scsx-gold transition-colors uppercase tracking-[0.2em]">Produtos</a>
-                    <a href="#contato" class="text-[11px] font-bold text-gray-800 hover:text-scsx-gold transition-colors uppercase tracking-[0.2em]">Contato</a>
+    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 nav-blur border-b border-gray-100 h-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+            <div class="flex items-center justify-between h-full">
+                <!-- Centro: Menu Navegação (Desktop) -->
+                <nav class="hidden md:flex flex-1 justify-center space-x-10">
+                    <a href="#home" class="text-[10px] font-bold text-gray-800 hover:text-scsx-gold transition-colors uppercase tracking-[0.2em]">Home</a>
+                    <a href="#sobre" class="text-[10px] font-bold text-gray-800 hover:text-scsx-gold transition-colors uppercase tracking-[0.2em]">Quem Somos</a>
+                    <a href="#produtos" class="text-[10px] font-bold text-gray-800 hover:text-scsx-gold transition-colors uppercase tracking-[0.2em]">Produtos</a>
+                    <a href="#contato" class="text-[10px] font-bold text-gray-800 hover:text-scsx-gold transition-colors uppercase tracking-[0.2em]">Contato</a>
                 </nav>
-                <div class="hidden md:flex items-center space-x-4">
-                    <button onclick="openAIDialog()" class="px-5 py-2.5 text-[10px] font-bold text-scsx-dark border border-scsx-dark hover:bg-scsx-dark hover:text-white transition-all rounded-sm uppercase tracking-widest">Análise IA ✨</button>
-                    <a href="#contato" class="px-6 py-2.5 text-[10px] font-bold text-white bg-scsx-dark hover:bg-scsx-primary transition-colors rounded-sm shadow-sm uppercase tracking-widest">Fale Conosco</a>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-gray-700 p-2"><i class="fa-solid fa-bars text-2xl"></i></button>
+
+                <!-- Direita: Ações -->
+                <div class="flex justify-end items-center space-x-4">
+                    <div class="hidden md:flex items-center space-x-4">
+                        <button onclick="openAIDialog()" class="px-5 py-2.5 text-[9px] font-bold text-scsx-dark border border-scsx-dark hover:bg-scsx-dark hover:text-white transition-all rounded-sm uppercase tracking-widest">IA Vision ✨</button>
+                        <a href="#contato" class="px-6 py-2.5 text-[9px] font-bold text-white bg-scsx-dark hover:bg-scsx-primary transition-colors rounded-sm shadow-sm uppercase tracking-widest">Consultoria</a>
+                    </div>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden text-gray-700 p-2"><i class="fa-solid fa-bars-staggered text-2xl"></i></button>
                 </div>
             </div>
         </div>
@@ -86,76 +88,77 @@
 
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden fixed inset-0 z-[60] bg-white p-6">
-        <div class="flex justify-end"><button onclick="toggleMenu()"><i class="fa-solid fa-times text-2xl text-scsx-dark"></i></button></div>
-        <nav class="flex flex-col space-y-8 mt-12 items-center text-center">
-            <a href="#home" onclick="toggleMenu()" class="text-2xl font-display font-bold text-scsx-dark uppercase tracking-widest">Home</a>
-            <a href="#sobre" onclick="toggleMenu()" class="text-2xl font-display font-bold text-scsx-dark uppercase tracking-widest">Quem Somos</a>
-            <a href="#produtos" onclick="toggleMenu()" class="text-2xl font-display font-bold text-scsx-dark uppercase tracking-widest">Produtos</a>
-            <a href="#contato" onclick="toggleMenu()" class="text-2xl font-display font-bold text-scsx-dark uppercase tracking-widest text-scsx-gold">Contato</a>
+        <div class="flex justify-end items-center">
+             <button onclick="toggleMenu()"><i class="fa-solid fa-times text-2xl text-scsx-dark"></i></button>
+        </div>
+        <nav class="flex flex-col space-y-8 mt-16 items-center text-center">
+            <a href="#home" onclick="toggleMenu()" class="text-3xl font-display font-bold text-scsx-dark uppercase tracking-widest">Home</a>
+            <a href="#sobre" onclick="toggleMenu()" class="text-3xl font-display font-bold text-scsx-dark uppercase tracking-widest">Quem Somos</a>
+            <a href="#produtos" onclick="toggleMenu()" class="text-3xl font-display font-bold text-scsx-dark uppercase tracking-widest">Produtos</a>
+            <a href="#contato" onclick="toggleMenu()" class="text-3xl font-display font-bold text-scsx-dark uppercase tracking-widest text-scsx-gold">Contato</a>
         </nav>
     </div>
 
     <!-- Hero Section -->
-    <section id="home" class="relative h-screen min-h-[700px] flex items-center bg-hero-pattern bg-cover bg-center">
+    <section id="home" class="relative min-h-[85vh] md:h-screen flex items-center bg-hero-pattern bg-cover bg-center pt-20">
         <div class="max-w-7xl mx-auto px-4 w-full relative z-10 fade-in-up">
-            <div class="max-w-4xl">
-                <span class="inline-block py-1 px-4 rounded-full bg-white/10 text-scsx-gold text-[10px] font-bold tracking-[0.3em] uppercase mb-8 border border-white/20 backdrop-blur-md">
-                    Proteção de Elite
+            <div class="max-w-4xl py-12 md:py-0">
+                <span class="inline-block py-1.5 px-5 rounded-full bg-white/10 text-scsx-gold text-[9px] md:text-[10px] font-bold tracking-[0.3em] uppercase mb-6 md:mb-8 border border-white/20 backdrop-blur-md">
+                    Estratégia em Seguros & Riscos
                 </span>
-                <h1 class="text-4xl md:text-7xl font-display font-extrabold text-white mb-6 leading-none font-expanded uppercase tracking-tighter">
-                    Excelência em Proteção <br> Patrimonial e <span class="text-scsx-gold">Corporativa</span>
+                <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-extrabold text-white mb-6 leading-[1.1] md:leading-none font-expanded uppercase tracking-tighter">
+                    Excelência em <br class="hidden sm:block"> Proteção <span class="text-scsx-gold">Patrimonial</span>
                 </h1>
-                <p class="text-lg md:text-xl text-gray-200 font-light mb-10 leading-relaxed max-w-2xl">
-                    Soluções desenhadas para quem exige o máximo. Garantimos a tranquilidade e excelência no atendimento e suporte ao segurado.
+                <p class="text-base md:text-xl text-gray-200 font-light mb-10 leading-relaxed max-w-2xl">
+                    Soluções desenhadas para quem exige o máximo. Garantimos a tranquilidade do seu legado com atendimento 24/7 e suporte especializado.
                 </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#contato" class="px-12 py-5 text-[11px] font-bold text-scsx-dark bg-white hover:bg-scsx-gold transition-all rounded-sm uppercase tracking-widest shadow-2xl">Quero atendimento humano</a>
-                    <button onclick="openAIDialog()" class="px-12 py-5 text-[11px] font-bold text-white border border-white/30 bg-white/5 hover:bg-white/10 transition-all rounded-sm uppercase tracking-widest backdrop-blur-sm">Simular Plano com IA ✨</button>
+                <div class="flex flex-col sm:flex-row flex-wrap gap-4">
+                    <a href="#contato" class="px-10 py-5 text-[10px] font-bold text-scsx-dark bg-white hover:bg-scsx-gold transition-all rounded-sm uppercase tracking-widest text-center shadow-2xl">Consultoria Exclusiva</a>
+                    <button onclick="openAIDialog()" class="px-10 py-5 text-[10px] font-bold text-white border border-white/30 bg-white/5 hover:bg-white/10 transition-all rounded-sm uppercase tracking-widest backdrop-blur-sm text-center">Simular com IA ✨</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Quem Somos (Family Office de Risco) -->
-    <section id="sobre" class="py-32 bg-white">
+    <!-- Quem Somos -->
+    <section id="sobre" class="py-24 md:py-32 bg-white">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
                 <div class="fade-in-up">
-                    <h2 class="text-scsx-gold font-bold text-[10px] uppercase tracking-[0.5em] mb-4">Metodologia Exclusiva</h2>
+                    <h2 class="text-scsx-gold font-bold text-[10px] uppercase tracking-[0.5em] mb-4">Nossa Forma de Atuar</h2>
                     <h3 class="text-4xl md:text-6xl font-display font-extrabold text-scsx-dark uppercase tracking-tighter mb-8 leading-tight">Seu <span class="text-scsx-gold">Family Office</span> <br>de Risco.</h3>
                     <div class="space-y-6 text-gray-600 text-lg leading-relaxed">
                         <p>
-                            A SCSX atua como uma extensão do seu planejamento financeiro. Nossa metodologia de <strong>Family Office de Risco</strong> analisa profundamente sua exposição para criar apólices bem calibradas.
-                        </p>
-                        <p>
-                            Não vendemos apenas seguros; entregamos a certeza de que seu patrimônio está protegido pelas melhores seguradoras.
+                            A SCSX atua como uma extensão do seu planejamento financeiro. Nossa metodologia de <strong>Family Office de Risco</strong> analisa profundamente sua exposição para criar blindagens que transcendem apólices comuns.
                         </p>
                     </div>
-                    <div class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-8 py-8 border-t border-gray-100">
+                    
+                    <!-- KPIs -->
+                    <div class="mt-16 grid grid-cols-2 gap-y-12 gap-x-8 py-10 border-t border-gray-100">
                         <div>
-                            <p class="text-2xl font-display font-extrabold text-scsx-dark uppercase tracking-tighter">2.500+</p>
-                            <p class="text-[9px] font-bold text-scsx-gold uppercase tracking-widest">Clientes Ativos</p>
+                            <p class="text-4xl md:text-5xl font-display font-extrabold text-scsx-dark uppercase tracking-tighter mb-2">2.500+</p>
+                            <p class="text-[10px] font-bold text-scsx-gold uppercase tracking-[0.2em] opacity-80">Clientes Ativos</p>
                         </div>
                         <div>
-                            <p class="text-2xl font-display font-extrabold text-scsx-dark uppercase tracking-tighter">24/7</p>
-                            <p class="text-[9px] font-bold text-scsx-gold uppercase tracking-widest">Atendimento</p>
+                            <p class="text-4xl md:text-5xl font-display font-extrabold text-scsx-dark uppercase tracking-tighter mb-2">24/7</p>
+                            <p class="text-[10px] font-bold text-scsx-gold uppercase tracking-[0.2em] opacity-80">Atendimento</p>
                         </div>
                         <div>
-                            <p class="text-2xl font-display font-extrabold text-scsx-dark uppercase tracking-tighter">30+</p>
-                            <p class="text-[9px] font-bold text-scsx-gold uppercase tracking-widest">Parceiros Globais</p>
+                            <p class="text-4xl md:text-5xl font-display font-extrabold text-scsx-dark uppercase tracking-tighter mb-2">30+</p>
+                            <p class="text-[10px] font-bold text-scsx-gold uppercase tracking-[0.2em] opacity-80">Parceiros Globais</p>
                         </div>
                         <div>
-                            <p class="text-2xl font-display font-extrabold text-scsx-dark uppercase tracking-tighter">500M+</p>
-                            <p class="text-[9px] font-bold text-scsx-gold uppercase tracking-widest">Valor Segurado</p>
+                            <p class="text-4xl md:text-5xl font-display font-extrabold text-scsx-dark uppercase tracking-tighter mb-2">500M+</p>
+                            <p class="text-[10px] font-bold text-scsx-gold uppercase tracking-[0.2em] opacity-80">Valor Segurado</p>
                         </div>
                     </div>
                 </div>
-                <div class="relative fade-in-up lg:order-last">
+                <div class="relative fade-in-up">
                     <div class="aspect-[4/5] bg-gray-200 rounded-sm overflow-hidden shadow-2xl">
                         <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2073&auto=format&fit=crop" alt="Metodologia SCSX" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000">
                     </div>
-                    <div class="absolute -bottom-10 -right-10 hidden lg:block bg-scsx-dark p-12 text-white max-w-xs shadow-2xl">
-                        <p class="text-2xl font-display font-bold uppercase tracking-tight italic">Onde o óbvio é se proteger. O diferencial é como.</p>
+                    <div class="absolute -bottom-8 -left-8 md:-bottom-10 md:-right-10 md:left-auto bg-scsx-dark p-8 md:p-12 text-white max-w-xs shadow-2xl">
+                        <p class="text-xl md:text-2xl font-display font-bold uppercase tracking-tight italic">Onde o óbvio é se proteger. O diferencial é como.</p>
                     </div>
                 </div>
             </div>
@@ -163,7 +166,7 @@
     </section>
 
     <!-- Seção de Produtos -->
-    <section id="produtos" class="py-32 bg-scsx-light">
+    <section id="produtos" class="py-24 md:py-32 bg-scsx-light">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center max-w-3xl mx-auto mb-20 fade-in-up">
                 <h2 class="text-scsx-gold font-bold text-[10px] uppercase tracking-[0.5em] mb-4">Soluções Corporativas e Pessoais</h2>
@@ -171,65 +174,58 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Card Auto -->
                 <article class="product-card group bg-white p-12 rounded-sm fade-in-up">
-                    <div class="text-scsx-gold text-3xl mb-8 transition-transform"><i class="fa-solid fa-car-side"></i></div>
+                    <div class="text-scsx-gold text-3xl mb-8"><i class="fa-solid fa-car-side"></i></div>
                     <h4 class="text-2xl font-display font-bold text-scsx-dark mb-4 uppercase tracking-tight">Automóveis</h4>
-                    <p class="text-gray-500 mb-10 leading-relaxed text-sm">Cobertura completa para o seu veículo, com assistência 24h e planos personalizados para cada perfil.</p>
-                    <button onclick="askIAAbout('Seguro Automóvel')" class="text-[10px] font-bold text-scsx-gold uppercase tracking-[0.3em] hover:text-scsx-dark transition-colors">Análise Inteligente ✨</button>
+                    <p class="text-gray-500 mb-10 leading-relaxed text-sm text-justify">Cobertura completa para o seu veículo, com assistência 24h e planos personalizados para cada perfil.</p>
+                    <button onclick="askIAAbout('Seguro Automóvel')" class="text-[10px] font-bold text-scsx-gold uppercase tracking-[0.3em] hover:text-scsx-dark transition-colors flex items-center gap-2">Análise Inteligente ✨</button>
                 </article>
 
-                <!-- Card Embarcações -->
                 <article class="product-card group bg-white p-12 rounded-sm fade-in-up">
-                    <div class="text-scsx-gold text-3xl mb-8 transition-transform"><i class="fa-solid fa-sailboat"></i></div>
+                    <div class="text-scsx-gold text-3xl mb-8"><i class="fa-solid fa-sailboat"></i></div>
                     <h4 class="text-2xl font-display font-bold text-scsx-dark mb-4 uppercase tracking-tight">Embarcações</h4>
-                    <p class="text-gray-500 mb-10 leading-relaxed text-sm">Proteção náutica exclusiva para lanchas e iates, cobrindo danos, roubo e responsabilidade civil na água.</p>
-                    <button onclick="askIAAbout('Embarcações de Recreio')" class="text-[10px] font-bold text-scsx-gold uppercase tracking-[0.3em] hover:text-scsx-dark transition-colors">Análise Inteligente ✨</button>
+                    <p class="text-gray-500 mb-10 leading-relaxed text-sm text-justify">Proteção náutica exclusiva para lanchas e iates, cobrindo danos, roubo e responsabilidade civil na água.</p>
+                    <button onclick="askIAAbout('Embarcações de Recreio')" class="text-[10px] font-bold text-scsx-gold uppercase tracking-[0.3em] hover:text-scsx-dark transition-colors flex items-center gap-2">Análise Inteligente ✨</button>
                 </article>
 
-                <!-- Card Bike -->
                 <article class="product-card group bg-white p-12 rounded-sm fade-in-up">
-                    <div class="text-scsx-gold text-3xl mb-8 transition-transform"><i class="fa-solid fa-bicycle"></i></div>
+                    <div class="text-scsx-gold text-3xl mb-8"><i class="fa-solid fa-bicycle"></i></div>
                     <h4 class="text-2xl font-display font-bold text-scsx-dark mb-4 uppercase tracking-tight">Bike</h4>
-                    <p class="text-gray-500 mb-10 leading-relaxed text-sm">Para ciclistas entusiastas e profissionais. Cobertura contra acidentes e furtos em qualquer lugar.</p>
-                    <button onclick="askIAAbout('Seguro para Bikes')" class="text-[10px] font-bold text-scsx-gold uppercase tracking-[0.3em] hover:text-scsx-dark transition-colors">Análise Inteligente ✨</button>
+                    <p class="text-gray-500 mb-10 leading-relaxed text-sm text-justify">Para ciclistas entusiastas e profissionais. Cobertura contra acidentes e furtos em qualquer lugar do mundo.</p>
+                    <button onclick="askIAAbout('Seguro para Bikes')" class="text-[10px] font-bold text-scsx-gold uppercase tracking-[0.3em] hover:text-scsx-dark transition-colors flex items-center gap-2">Análise Inteligente ✨</button>
                 </article>
 
-                <!-- Card Transportes -->
                 <article class="product-card group bg-white p-12 rounded-sm fade-in-up">
-                    <div class="text-scsx-gold text-3xl mb-8 transition-transform"><i class="fa-solid fa-truck-fast"></i></div>
+                    <div class="text-scsx-gold text-3xl mb-8"><i class="fa-solid fa-truck-fast"></i></div>
                     <h4 class="text-2xl font-display font-bold text-scsx-dark mb-4 uppercase tracking-tight">Transportes</h4>
-                    <p class="text-gray-500 mb-10 leading-relaxed text-sm">Gerenciamento de riscos logísticos. Segurança para sua mercadoria do carregamento ao destino final.</p>
-                    <button onclick="askIAAbout('Seguro de Transportes')" class="text-[10px] font-bold text-scsx-gold uppercase tracking-[0.3em] hover:text-scsx-dark transition-colors">Análise Inteligente ✨</button>
+                    <p class="text-gray-500 mb-10 leading-relaxed text-sm text-justify">Gerenciamento de riscos logísticos. Segurança para sua mercadoria do carregamento ao destino final.</p>
+                    <button onclick="askIAAbout('Seguro de Transportes')" class="text-[10px] font-bold text-scsx-gold uppercase tracking-[0.3em] hover:text-scsx-dark transition-colors flex items-center gap-2">Análise Inteligente ✨</button>
                 </article>
 
-                <!-- Card Viagem -->
                 <article class="product-card group bg-white p-12 rounded-sm fade-in-up">
-                    <div class="text-scsx-gold text-3xl mb-8 transition-transform"><i class="fa-solid fa-plane-departure"></i></div>
+                    <div class="text-scsx-gold text-3xl mb-8"><i class="fa-solid fa-plane-departure"></i></div>
                     <h4 class="text-2xl font-display font-bold text-scsx-dark mb-4 uppercase tracking-tight">Viagem</h4>
-                    <p class="text-gray-500 mb-10 leading-relaxed text-sm">Tranquilidade em destinos nacionais e internacionais. Assistência médica 24h e cobertura de bagagem.</p>
-                    <button onclick="askIAAbout('Seguro Viagem Nacional e Internacional')" class="text-[10px] font-bold text-scsx-gold uppercase tracking-[0.3em] hover:text-scsx-dark transition-colors">Análise Inteligente ✨</button>
+                    <p class="text-gray-500 mb-10 leading-relaxed text-sm text-justify">Tranquilidade em destinos nacionais e internacionais com assistência médica completa e bagagem.</p>
+                    <button onclick="askIAAbout('Seguro Viagem Nacional e Internacional')" class="text-[10px] font-bold text-scsx-gold uppercase tracking-[0.3em] hover:text-scsx-dark transition-colors flex items-center gap-2">Análise Inteligente ✨</button>
                 </article>
 
-                <!-- Card Resp. Civil -->
                 <article class="product-card group bg-white p-12 rounded-sm fade-in-up">
-                    <div class="text-scsx-gold text-3xl mb-8 transition-transform"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="text-scsx-gold text-3xl mb-8"><i class="fa-solid fa-shield-halved"></i></div>
                     <h4 class="text-2xl font-display font-bold text-scsx-dark mb-4 uppercase tracking-tight">Resp. Civil</h4>
-                    <p class="text-gray-500 mb-10 leading-relaxed text-sm">Segurança jurídica e financeira contra danos involuntários causados a terceiros por sua empresa ou profissão.</p>
-                    <button onclick="askIAAbout('Seguro Responsabilidade Civil')" class="text-[10px] font-bold text-scsx-gold uppercase tracking-[0.3em] hover:text-scsx-dark transition-colors">Análise Inteligente ✨</button>
+                    <p class="text-gray-500 mb-10 leading-relaxed text-sm text-justify">Segurança jurídica e financeira contra danos involuntários causados a terceiros por sua empresa.</p>
+                    <button onclick="askIAAbout('Seguro Responsabilidade Civil')" class="text-[10px] font-bold text-scsx-gold uppercase tracking-[0.3em] hover:text-scsx-dark transition-colors flex items-center gap-2">Análise Inteligente ✨</button>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- Contato (Formspree & IA Integrada) -->
-    <section id="contato" class="py-32 bg-white">
+    <!-- Contato -->
+    <section id="contato" class="py-24 md:py-32 bg-white">
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                 <div class="fade-in-up">
                     <h2 class="text-scsx-gold font-bold text-[10px] uppercase tracking-[0.5em] mb-4">Fale Conosco</h2>
                     <h3 class="text-4xl md:text-6xl font-display font-extrabold text-scsx-dark uppercase tracking-tighter mb-8 leading-tight">Vamos desenhar <br> sua <span class="text-scsx-gold">proteção?</span></h3>
-                    <p class="text-gray-600 mb-12 text-lg">Nossa equipe de especialistas está pronta para analisar suas necessidades e propor a melhor solução.</p>
                     
                     <div class="space-y-10">
                         <div class="flex items-center gap-6 group">
@@ -249,12 +245,18 @@
                     </div>
                 </div>
 
-                <div class="fade-in-up bg-scsx-light p-10 lg:p-16 rounded-sm shadow-sm">
+                <div class="fade-in-up bg-scsx-light p-8 md:p-16 rounded-sm shadow-sm">
                     <form action="https://formspree.io/f/mwvpnkzn" method="POST" id="contactForm" class="space-y-8">
                         <input type="hidden" name="_subject" value="Nova solicitação de contato - SCSX">
-                        <div>
-                            <label class="block text-[10px] font-bold uppercase tracking-widest text-scsx-dark mb-4">Nome Completo</label>
-                            <input type="text" name="name" required class="w-full bg-transparent border-b border-scsx-gold/30 py-4 outline-none focus:border-scsx-gold transition-colors font-medium">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase tracking-widest text-scsx-dark mb-4">Nome Completo</label>
+                                <input type="text" name="name" required class="w-full bg-transparent border-b border-scsx-gold/30 py-4 outline-none focus:border-scsx-gold transition-colors font-medium">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase tracking-widest text-scsx-dark mb-4">Telefone de Contato</label>
+                                <input type="tel" name="phone" required placeholder="(00) 00000-0000" class="w-full bg-transparent border-b border-scsx-gold/30 py-4 outline-none focus:border-scsx-gold transition-colors font-medium">
+                            </div>
                         </div>
                         <div>
                             <label class="block text-[10px] font-bold uppercase tracking-widest text-scsx-dark mb-4">E-mail</label>
@@ -263,7 +265,6 @@
                         <div>
                             <label class="block text-[10px] font-bold uppercase tracking-widest text-scsx-dark mb-4">Mensagem / Observações</label>
                             <textarea id="formMessage" name="message" rows="4" class="w-full bg-transparent border-b border-scsx-gold/30 py-4 outline-none focus:border-scsx-gold transition-colors font-medium" placeholder="Como podemos ajudar?"></textarea>
-                            <p class="text-[9px] text-gray-400 mt-2 uppercase tracking-widest">* Use nossa IA acima para gerar uma análise e preencher este campo automaticamente.</p>
                         </div>
                         <button type="submit" class="w-full py-6 bg-scsx-dark text-white text-[11px] font-bold uppercase tracking-[0.3em] rounded-sm hover:bg-scsx-primary transition-all shadow-xl">Enviar solicitação</button>
                     </form>
@@ -275,32 +276,47 @@
     <!-- Footer -->
     <footer class="bg-scsx-footer text-white pt-24 pb-12">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
-                <div class="col-span-1 md:col-span-1">
-                    <img src="Logo  SCSX (300 x 300 px) (1.png" alt="SCSX" class="h-16 mb-8 brightness-0 invert grayscale">
-                    <p class="text-sm text-gray-400 leading-relaxed uppercase tracking-wider text-[11px]">
-                        Seu Family Office de Risco. Atuamos como uma extensão do seu planejamento estratégico.
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-16 mb-20">
+                <div class="col-span-1">
+                    <p class="text-sm text-gray-400 leading-relaxed uppercase tracking-wider text-[10px]">
+                        Seu Family Office de Risco. Atuamos como uma extensão estratégica para blindar seu futuro e preservar seu legado patrimonial.
                     </p>
                 </div>
                 <div>
-                    <h4 class="text-scsx-gold font-bold text-[11px] uppercase tracking-widest mb-8">Soluções Completas</h4>
-                    <ul class="space-y-3 text-[11px] text-gray-400 uppercase tracking-tighter">
-                        <li>Auto</li>
-                        <li>Residencial</li>
-                        <li>Vida & Sucessão</li>
-                        <li>Náutico & Aeronáutico</li>
-                        <li>Empresarial & D&O</li>
-                        <li>Riscos Cibernéticos (Cyber)</li>
-                        <li>Seguro Agro</li>
-                        <li>Responsabilidade Civil</li>
+                    <h4 class="text-scsx-gold font-bold text-[11px] uppercase tracking-widest mb-8">Soluções Inteligentes</h4>
+                    <ul class="space-y-4 text-[10px] text-gray-400 uppercase tracking-widest">
+                        <li class="flex items-center justify-between group cursor-pointer" onclick="askIAAbout('Seguro de Automóveis')">
+                            <span>Automóveis</span>
+                            <span class="text-scsx-gold opacity-0 group-hover:opacity-100 transition-opacity">IA ✨</span>
+                        </li>
+                        <li class="flex items-center justify-between group cursor-pointer" onclick="askIAAbout('Seguro de Embarcações')">
+                            <span>Embarcações</span>
+                            <span class="text-scsx-gold opacity-0 group-hover:opacity-100 transition-opacity">IA ✨</span>
+                        </li>
+                        <li class="flex items-center justify-between group cursor-pointer" onclick="askIAAbout('Seguro de Bikes de Luxo')">
+                            <span>Bikes</span>
+                            <span class="text-scsx-gold opacity-0 group-hover:opacity-100 transition-opacity">IA ✨</span>
+                        </li>
+                        <li class="flex items-center justify-between group cursor-pointer" onclick="askIAAbout('Seguro de Transportes e Logística')">
+                            <span>Transportes</span>
+                            <span class="text-scsx-gold opacity-0 group-hover:opacity-100 transition-opacity">IA ✨</span>
+                        </li>
+                        <li class="flex items-center justify-between group cursor-pointer" onclick="askIAAbout('Seguro Viagem Internacional')">
+                            <span>Viagem</span>
+                            <span class="text-scsx-gold opacity-0 group-hover:opacity-100 transition-opacity">IA ✨</span>
+                        </li>
+                        <li class="flex items-center justify-between group cursor-pointer" onclick="askIAAbout('Responsabilidade Civil D&O/E&O')">
+                            <span>Resp. Civil</span>
+                            <span class="text-scsx-gold opacity-0 group-hover:opacity-100 transition-opacity">IA ✨</span>
+                        </li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-scsx-gold font-bold text-[11px] uppercase tracking-widest mb-8">Contatos</h4>
-                    <ul class="space-y-4 text-xs text-gray-400">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-phone text-scsx-gold text-xs"></i> +55 11 93769-6937</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-envelope text-scsx-gold text-xs"></i> atendimento@scsx.com.br</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-location-dot text-scsx-gold text-xs"></i> São Paulo, Brasil</li>
+                    <ul class="space-y-4 text-[11px] text-gray-400 uppercase tracking-widest">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-phone text-scsx-gold"></i> +55 11 93769-6937</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-envelope text-scsx-gold"></i> atendimento@scsx.com.br</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-location-dot text-scsx-gold"></i> São Paulo, SP</li>
                     </ul>
                 </div>
                 <div>
@@ -311,53 +327,58 @@
                     </div>
                 </div>
             </div>
-            <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-500 uppercase tracking-[0.3em] gap-6">
+            <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-500 uppercase tracking-[0.3em] gap-6 text-center">
                 <p>&copy; 2025 SCSX Corretora de Seguros. Todos os direitos reservados.</p>
-                <p>Proteção • Excelência • Estratégia</p>
+                <div class="flex gap-8">
+                    <a href="#" class="hover:text-white transition-colors">Privacidade</a>
+                    <a href="#" class="hover:text-white transition-colors">Termos</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <!-- WhatsApp Floating -->
-    <a href="https://wa.me/5511937696937" target="_blank" class="fixed bottom-10 right-10 z-50 bg-[#25D366] text-white p-5 rounded-full shadow-2xl hover:scale-110 transition-transform whatsapp-pulse">
+    <a href="https://wa.me/5511937696937" target="_blank" class="fixed bottom-8 right-8 z-50 bg-[#25D366] text-white p-5 rounded-full shadow-2xl hover:scale-110 transition-transform whatsapp-pulse">
         <i class="fa-brands fa-whatsapp text-3xl"></i>
     </a>
 
     <!-- Modal IA -->
     <div id="aiModal" class="flex items-center justify-center p-4">
-        <div class="bg-white rounded-sm shadow-2xl max-w-2xl w-full p-10 relative">
+        <div class="bg-white rounded-sm shadow-2xl max-w-2xl w-full p-8 md:p-12 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2 h-full bg-scsx-gold"></div>
             <button onclick="closeAIDialog()" class="absolute top-6 right-6 text-gray-400 hover:text-scsx-dark transition-colors"><i class="fa-solid fa-times text-2xl"></i></button>
             <div class="flex items-center gap-4 mb-8">
                 <div class="w-12 h-12 bg-scsx-dark text-scsx-gold rounded-sm flex items-center justify-center text-xl shadow-lg"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
                 <div>
                     <h3 class="text-2xl font-display font-extrabold text-scsx-dark uppercase tracking-tight">SCSX AI Vision ✨</h3>
-                    <p class="text-[10px] font-bold text-scsx-gold uppercase tracking-widest">Consultoria Tecnológica Instantânea</p>
+                    <p class="text-[9px] font-bold text-scsx-gold uppercase tracking-widest">Consultoria Tecnológica Instantânea</p>
                 </div>
             </div>
             <div id="aiInputArea">
-                <p class="text-sm text-gray-500 mb-6 leading-relaxed">Nossa inteligência artificial analisa seu perfil de risco para uma blindagem patrimonial completa.</p>
-                <textarea id="aiPrompt" class="w-full h-32 p-5 border border-scsx-light bg-gray-50 rounded-sm focus:ring-1 focus:ring-scsx-gold outline-none text-sm mb-6 transition-all" placeholder="Ex: Preciso de um planejamento para blindar meus imóveis e minha frota..."></textarea>
-                <button onclick="generateAI()" class="w-full bg-scsx-dark text-white font-bold py-5 rounded-sm hover:bg-scsx-primary transition-all uppercase tracking-widest text-[11px] shadow-lg">Gerar Planejamento Estratégico</button>
+                <p class="text-sm text-gray-500 mb-6 leading-relaxed">Nossa inteligência artificial analisa seu perfil para propor uma blindagem patrimonial otimizada.</p>
+                <textarea id="aiPrompt" class="w-full h-32 p-5 border border-scsx-light bg-gray-50 rounded-sm focus:ring-1 focus:ring-scsx-gold outline-none text-sm mb-6 transition-all" placeholder="Ex: Analise os riscos para uma embarcação de luxo operando no litoral paulista..."></textarea>
+                <button onclick="generateAI()" class="w-full bg-scsx-dark text-white font-bold py-5 rounded-sm hover:bg-scsx-primary transition-all uppercase tracking-widest text-[10px] shadow-lg">Gerar Planejamento</button>
             </div>
             <div id="aiLoading" class="hidden py-12 text-center">
                 <div class="animate-spin h-10 w-10 border-2 border-scsx-gold border-t-transparent mx-auto mb-6 rounded-full"></div>
-                <p class="text-[11px] font-bold text-scsx-dark uppercase tracking-[0.4em]">Analisando Variáveis Globais...</p>
+                <p class="text-[10px] font-bold text-scsx-dark uppercase tracking-[0.4em]">Sincronizando Dados Globais...</p>
             </div>
             <div id="aiResult" class="hidden mt-4">
-                <div id="aiTextContent" class="text-sm text-gray-700 bg-scsx-light p-8 rounded-sm leading-relaxed mb-8 border-l-4 border-scsx-gold max-h-[400px] overflow-y-auto"></div>
-                <button onclick="copyToForm()" class="w-full bg-scsx-gold text-white py-5 rounded-sm text-[11px] font-bold uppercase tracking-widest hover:bg-scsx-goldhover transition-all shadow-lg">Preencher formulário com esta análise</button>
+                <div id="aiTextContent" class="text-sm text-gray-700 bg-scsx-light p-8 rounded-sm leading-relaxed mb-8 border-l-2 border-scsx-gold max-h-[350px] overflow-y-auto"></div>
+                <button onclick="copyToForm()" class="w-full bg-scsx-gold text-white py-5 rounded-sm text-[10px] font-bold uppercase tracking-widest hover:bg-scsx-goldhover transition-all shadow-lg">Integrar esta análise ao contato</button>
             </div>
         </div>
     </div>
 
     <script>
-        const apiKey = ""; // Substituído em runtime
+        const apiKey = ""; 
         
         function openAIDialog() { document.getElementById('aiModal').style.display = 'flex'; }
         function closeAIDialog() { 
             document.getElementById('aiModal').style.display = 'none'; 
             document.getElementById('aiInputArea').classList.remove('hidden');
             document.getElementById('aiResult').classList.add('hidden');
+            document.getElementById('aiLoading').classList.add('hidden');
         }
         function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
 
@@ -373,14 +394,14 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         contents: [{ parts: [{ text: prompt }] }],
-                        systemInstruction: { parts: [{ text: "Você é o assistente virtual da SCSX Corretora de Seguros. Seu tom é executivo, exclusivo e técnico. Explique riscos específicos e sugira coberturas premium. No final, indique que a SCSX cuidará da implementação." }] }
+                        systemInstruction: { parts: [{ text: "Você é o assistente virtual da SCSX Corretora de Seguros. Seu tom é executivo, exclusivo e técnico. Explique riscos específicos e sugira coberturas premium. Seja direto e profissional." }] }
                     })
                 });
                 const data = await res.json();
                 const text = data.candidates?.[0]?.content?.parts?.[0]?.text || "Serviço temporariamente indisponível.";
                 document.getElementById('aiTextContent').innerText = text;
             } catch (e) {
-                document.getElementById('aiTextContent').innerText = "Erro ao conectar. Por favor, fale com nossos consultores via WhatsApp.";
+                document.getElementById('aiTextContent').innerText = "Erro na conexão. Nossos especialistas podem ajudar via WhatsApp.";
             } finally {
                 document.getElementById('aiLoading').classList.add('hidden');
                 document.getElementById('aiResult').classList.remove('hidden');
@@ -390,14 +411,14 @@
         function copyToForm() {
             const aiText = document.getElementById('aiTextContent').innerText;
             const prompt = document.getElementById('aiPrompt').value;
-            document.getElementById('formMessage').value = `ANÁLISE IA PARA: ${prompt}\n\nSUGESTÃO IA:\n${aiText}`;
+            document.getElementById('formMessage').value = `REQUERIMENTO IA: ${prompt}\n\nRECOMENDAÇÃO SCSX:\n${aiText}`;
             closeAIDialog();
             window.location.href = "#contato";
         }
 
         async function askIAAbout(topic) {
             openAIDialog();
-            document.getElementById('aiPrompt').value = `Necessito de uma consultoria técnica para ${topic}.`;
+            document.getElementById('aiPrompt').value = `Preciso de uma análise de blindagem para: ${topic}.`;
             generateAI();
         }
 
@@ -411,13 +432,14 @@
 
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
-            if (window.scrollY > 50) header.classList.add('py-2', 'shadow-md');
-            else header.classList.remove('py-2', 'shadow-md');
+            if (window.scrollY > 50) {
+                header.classList.add('h-16', 'shadow-md');
+                header.classList.remove('h-20');
+            } else {
+                header.classList.add('h-20');
+                header.classList.remove('h-16', 'shadow-md');
+            }
         });
     </script>
 </body>
 </html>
-
-
-
-
