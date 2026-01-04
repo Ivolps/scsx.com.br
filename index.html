@@ -57,29 +57,38 @@
         @keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
         .whatsapp-pulse { animation: pulse-green 2s infinite; }
         #aiModal { display: none; position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); }
+
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c2a07a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 1em;
+        }
+
+        /* Estilo para input file */
+        .file-input-label { cursor: pointer; transition: all 0.2s; }
+        .file-input-label:hover { color: #c2a07a; }
     </style>
 </head>
-<body class="font-sans text-slate-600 bg-white antialiased overflow-x-hidden selection:bg-scsx-gold selection:text-white">
+<body class="font-sans text-slate-600 bg-white antialiased overflow-x-hidden selection:bg-scsx-gold selection:text-white text-[15px]">
 
     <!-- Header -->
     <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 nav-blur border-b border-gray-100 h-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
             <div class="flex items-center justify-between h-full">
-                <!-- Centro: Menu Navegação (Desktop) -->
-                <nav class="hidden md:flex flex-1 justify-center space-x-10">
+                <nav class="hidden md:flex flex-1 justify-center space-x-12">
                     <a href="#home" class="text-[10px] font-bold text-gray-800 hover:text-scsx-gold transition-colors uppercase tracking-[0.2em]">Home</a>
                     <a href="#sobre" class="text-[10px] font-bold text-gray-800 hover:text-scsx-gold transition-colors uppercase tracking-[0.2em]">Quem Somos</a>
                     <a href="#produtos" class="text-[10px] font-bold text-gray-800 hover:text-scsx-gold transition-colors uppercase tracking-[0.2em]">Produtos</a>
                     <a href="#contato" class="text-[10px] font-bold text-gray-800 hover:text-scsx-gold transition-colors uppercase tracking-[0.2em]">Contato</a>
                 </nav>
 
-                <!-- Direita: Ações -->
                 <div class="flex justify-end items-center space-x-4">
                     <div class="hidden md:flex items-center space-x-4">
                         <button onclick="openAIDialog()" class="px-5 py-2.5 text-[9px] font-bold text-scsx-dark border border-scsx-dark hover:bg-scsx-dark hover:text-white transition-all rounded-sm uppercase tracking-widest">IA Vision ✨</button>
                         <a href="#contato" class="px-6 py-2.5 text-[9px] font-bold text-white bg-scsx-dark hover:bg-scsx-primary transition-colors rounded-sm shadow-sm uppercase tracking-widest">Consultoria</a>
                     </div>
-                    <!-- Mobile Menu Button -->
                     <button id="mobile-menu-btn" class="md:hidden text-gray-700 p-2"><i class="fa-solid fa-bars-staggered text-2xl"></i></button>
                 </div>
             </div>
@@ -133,7 +142,6 @@
                         </p>
                     </div>
                     
-                    <!-- KPIs -->
                     <div class="mt-16 grid grid-cols-2 gap-y-12 gap-x-8 py-10 border-t border-gray-100">
                         <div>
                             <p class="text-4xl md:text-5xl font-display font-extrabold text-scsx-dark uppercase tracking-tighter mb-2">2.500+</p>
@@ -174,6 +182,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card Auto -->
                 <article class="product-card group bg-white p-12 rounded-sm fade-in-up">
                     <div class="text-scsx-gold text-3xl mb-8"><i class="fa-solid fa-car-side"></i></div>
                     <h4 class="text-2xl font-display font-bold text-scsx-dark mb-4 uppercase tracking-tight">Automóveis</h4>
@@ -181,6 +190,7 @@
                     <button onclick="askIAAbout('Seguro Automóvel')" class="text-[10px] font-bold text-scsx-gold uppercase tracking-[0.3em] hover:text-scsx-dark transition-colors flex items-center gap-2">Análise Inteligente ✨</button>
                 </article>
 
+                <!-- Card Embarcações -->
                 <article class="product-card group bg-white p-12 rounded-sm fade-in-up">
                     <div class="text-scsx-gold text-3xl mb-8"><i class="fa-solid fa-sailboat"></i></div>
                     <h4 class="text-2xl font-display font-bold text-scsx-dark mb-4 uppercase tracking-tight">Embarcações</h4>
@@ -188,6 +198,7 @@
                     <button onclick="askIAAbout('Embarcações de Recreio')" class="text-[10px] font-bold text-scsx-gold uppercase tracking-[0.3em] hover:text-scsx-dark transition-colors flex items-center gap-2">Análise Inteligente ✨</button>
                 </article>
 
+                <!-- Card Bike -->
                 <article class="product-card group bg-white p-12 rounded-sm fade-in-up">
                     <div class="text-scsx-gold text-3xl mb-8"><i class="fa-solid fa-bicycle"></i></div>
                     <h4 class="text-2xl font-display font-bold text-scsx-dark mb-4 uppercase tracking-tight">Bike</h4>
@@ -195,6 +206,7 @@
                     <button onclick="askIAAbout('Seguro para Bikes')" class="text-[10px] font-bold text-scsx-gold uppercase tracking-[0.3em] hover:text-scsx-dark transition-colors flex items-center gap-2">Análise Inteligente ✨</button>
                 </article>
 
+                <!-- Card Transportes -->
                 <article class="product-card group bg-white p-12 rounded-sm fade-in-up">
                     <div class="text-scsx-gold text-3xl mb-8"><i class="fa-solid fa-truck-fast"></i></div>
                     <h4 class="text-2xl font-display font-bold text-scsx-dark mb-4 uppercase tracking-tight">Transportes</h4>
@@ -202,6 +214,7 @@
                     <button onclick="askIAAbout('Seguro de Transportes')" class="text-[10px] font-bold text-scsx-gold uppercase tracking-[0.3em] hover:text-scsx-dark transition-colors flex items-center gap-2">Análise Inteligente ✨</button>
                 </article>
 
+                <!-- Card Viagem -->
                 <article class="product-card group bg-white p-12 rounded-sm fade-in-up">
                     <div class="text-scsx-gold text-3xl mb-8"><i class="fa-solid fa-plane-departure"></i></div>
                     <h4 class="text-2xl font-display font-bold text-scsx-dark mb-4 uppercase tracking-tight">Viagem</h4>
@@ -209,6 +222,7 @@
                     <button onclick="askIAAbout('Seguro Viagem Nacional e Internacional')" class="text-[10px] font-bold text-scsx-gold uppercase tracking-[0.3em] hover:text-scsx-dark transition-colors flex items-center gap-2">Análise Inteligente ✨</button>
                 </article>
 
+                <!-- Card Resp. Civil -->
                 <article class="product-card group bg-white p-12 rounded-sm fade-in-up">
                     <div class="text-scsx-gold text-3xl mb-8"><i class="fa-solid fa-shield-halved"></i></div>
                     <h4 class="text-2xl font-display font-bold text-scsx-dark mb-4 uppercase tracking-tight">Resp. Civil</h4>
@@ -226,16 +240,17 @@
                 <div class="fade-in-up">
                     <h2 class="text-scsx-gold font-bold text-[10px] uppercase tracking-[0.5em] mb-4">Fale Conosco</h2>
                     <h3 class="text-4xl md:text-6xl font-display font-extrabold text-scsx-dark uppercase tracking-tighter mb-8 leading-tight">Vamos desenhar <br> sua <span class="text-scsx-gold">proteção?</span></h3>
+                    <p class="text-gray-600 mb-12 text-lg">Nossa equipe de especialistas está pronta para analisar as suas necessidades e propor a melhor solução. Preencha o formulário e receba contato em até 2 horas úteis.</p>
                     
                     <div class="space-y-10">
-                        <div class="flex items-center gap-6 group">
+                        <div class="flex items-center gap-6 group cursor-pointer">
                             <div class="w-12 h-12 rounded-full border border-scsx-gold flex items-center justify-center text-scsx-gold group-hover:bg-scsx-gold group-hover:text-white transition-all"><i class="fa-solid fa-phone"></i></div>
                             <div>
                                 <span class="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1">Telefone</span>
                                 <span class="text-xl font-bold text-scsx-dark">+55 11 93769-6937</span>
                             </div>
                         </div>
-                        <div class="flex items-center gap-6 group">
+                        <div class="flex items-center gap-6 group cursor-pointer">
                             <div class="w-12 h-12 rounded-full border border-scsx-gold flex items-center justify-center text-scsx-gold group-hover:bg-scsx-gold group-hover:text-white transition-all"><i class="fa-solid fa-envelope"></i></div>
                             <div>
                                 <span class="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1">E-mail</span>
@@ -246,8 +261,9 @@
                 </div>
 
                 <div class="fade-in-up bg-scsx-light p-8 md:p-16 rounded-sm shadow-sm">
-                    <form action="https://formspree.io/f/mwvpnkzn" method="POST" id="contactForm" class="space-y-8">
+                    <form action="https://formspree.io/f/mwvpnkzn" method="POST" id="contactForm" enctype="multipart/form-data" class="space-y-8">
                         <input type="hidden" name="_subject" value="Nova solicitação de contato - SCSX">
+                        
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div>
                                 <label class="block text-[10px] font-bold uppercase tracking-widest text-scsx-dark mb-4">Nome Completo</label>
@@ -258,15 +274,49 @@
                                 <input type="tel" name="phone" required placeholder="(00) 00000-0000" class="w-full bg-transparent border-b border-scsx-gold/30 py-4 outline-none focus:border-scsx-gold transition-colors font-medium">
                             </div>
                         </div>
-                        <div>
-                            <label class="block text-[10px] font-bold uppercase tracking-widest text-scsx-dark mb-4">E-mail</label>
-                            <input type="email" name="email" required class="w-full bg-transparent border-b border-scsx-gold/30 py-4 outline-none focus:border-scsx-gold transition-colors font-medium">
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase tracking-widest text-scsx-dark mb-4">E-mail</label>
+                                <input type="email" name="email" required class="w-full bg-transparent border-b border-scsx-gold/30 py-4 outline-none focus:border-scsx-gold transition-colors font-medium">
+                                <!-- Campo de Anexo -->
+                                <div class="mt-4 flex items-center gap-2">
+                                    <label for="attachment" class="file-input-label text-[10px] font-bold uppercase tracking-widest flex items-center gap-2 transition-colors">
+                                        <i class="fa-solid fa-paperclip"></i> Anexar documento
+                                    </label>
+                                    <input type="file" id="attachment" name="attachment" class="hidden" onchange="updateFileName(this)">
+                                    <span id="fileNameDisplay" class="text-[9px] text-scsx-gold uppercase tracking-widest italic"></span>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase tracking-widest text-scsx-dark mb-4">Produto de Interesse</label>
+                                <select id="formProduct" name="product" class="w-full bg-transparent border-b border-scsx-gold/30 py-4 outline-none focus:border-scsx-gold transition-colors font-medium cursor-pointer">
+                                    <option value="" disabled selected>Selecione uma opção</option>
+                                    <option value="Automóveis">Automóveis</option>
+                                    <option value="Residencial">Residencial</option>
+                                    <option value="Vida e Sucessão">Vida & Sucessão</option>
+                                    <option value="Náutico e Aeronáutico">Náutico & Aeronáutico</option>
+                                    <option value="Empresarial e D&O">Empresarial & D&O</option>
+                                    <option value="Riscos Cibernéticos">Riscos Cibernéticos (Cyber)</option>
+                                    <option value="Seguro Agro">Seguro Agro</option>
+                                    <option value="Bike">Bike</option>
+                                    <option value="Responsabilidade Civil">Responsabilidade Civil</option>
+                                    <option value="Outros Seguros">Outros Seguros</option>
+                                </select>
+                            </div>
                         </div>
+
                         <div>
                             <label class="block text-[10px] font-bold uppercase tracking-widest text-scsx-dark mb-4">Mensagem / Observações</label>
                             <textarea id="formMessage" name="message" rows="4" class="w-full bg-transparent border-b border-scsx-gold/30 py-4 outline-none focus:border-scsx-gold transition-colors font-medium" placeholder="Como podemos ajudar?"></textarea>
+                            <p class="text-[9px] text-gray-400 mt-3 uppercase tracking-widest leading-loose">* Utilize a nossa IA (IA Vision) para gerar um diagnóstico automático para a sua mensagem.</p>
                         </div>
-                        <button type="submit" class="w-full py-6 bg-scsx-dark text-white text-[11px] font-bold uppercase tracking-[0.3em] rounded-sm hover:bg-scsx-primary transition-all shadow-xl">Enviar solicitação</button>
+                        
+                        <div class="space-y-4">
+                            <button type="submit" class="w-full py-6 bg-scsx-dark text-white text-[11px] font-bold uppercase tracking-[0.3em] rounded-sm hover:bg-scsx-primary transition-all shadow-xl">Enviar solicitação</button>
+                            <p class="text-center text-[9px] text-gray-400 uppercase tracking-widest">Ao enviar, você concorda com nossa Política de Privacidade</p>
+                            <p class="text-center text-[9px] text-gray-400 uppercase tracking-widest">Suas informações estão seguras conosco. Respeitamos a LGPD.</p>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -278,34 +328,28 @@
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-16 mb-20">
                 <div class="col-span-1">
+                    <h4 class="text-white font-display font-extrabold text-2xl uppercase tracking-tighter mb-6">SCSX</h4>
                     <p class="text-sm text-gray-400 leading-relaxed uppercase tracking-wider text-[10px]">
                         Seu Family Office de Risco. Atuamos como uma extensão estratégica para blindar seu futuro e preservar seu legado patrimonial.
                     </p>
                 </div>
                 <div>
-                    <h4 class="text-scsx-gold font-bold text-[11px] uppercase tracking-widest mb-8">Soluções Inteligentes</h4>
+                    <h4 class="text-scsx-gold font-bold text-[11px] uppercase tracking-widest mb-8">Soluções Completas</h4>
                     <ul class="space-y-4 text-[10px] text-gray-400 uppercase tracking-widest">
-                        <li class="flex items-center justify-between group cursor-pointer" onclick="askIAAbout('Seguro de Automóveis')">
-                            <span>Automóveis</span>
+                        <li class="flex items-center justify-between group cursor-pointer" onclick="askIAAbout('Seguro Automóvel')">
+                            <span>Auto</span>
                             <span class="text-scsx-gold opacity-0 group-hover:opacity-100 transition-opacity">IA ✨</span>
                         </li>
-                        <li class="flex items-center justify-between group cursor-pointer" onclick="askIAAbout('Seguro de Embarcações')">
-                            <span>Embarcações</span>
+                        <li class="cursor-pointer hover:text-white transition-colors">Residencial</li>
+                        <li class="cursor-pointer hover:text-white transition-colors">Vida & Sucessão</li>
+                        <li class="flex items-center justify-between group cursor-pointer" onclick="askIAAbout('Náutico e Aeronáutico')">
+                            <span>Náutico & Aeronáutico</span>
                             <span class="text-scsx-gold opacity-0 group-hover:opacity-100 transition-opacity">IA ✨</span>
                         </li>
-                        <li class="flex items-center justify-between group cursor-pointer" onclick="askIAAbout('Seguro de Bikes de Luxo')">
-                            <span>Bikes</span>
-                            <span class="text-scsx-gold opacity-0 group-hover:opacity-100 transition-opacity">IA ✨</span>
-                        </li>
-                        <li class="flex items-center justify-between group cursor-pointer" onclick="askIAAbout('Seguro de Transportes e Logística')">
-                            <span>Transportes</span>
-                            <span class="text-scsx-gold opacity-0 group-hover:opacity-100 transition-opacity">IA ✨</span>
-                        </li>
-                        <li class="flex items-center justify-between group cursor-pointer" onclick="askIAAbout('Seguro Viagem Internacional')">
-                            <span>Viagem</span>
-                            <span class="text-scsx-gold opacity-0 group-hover:opacity-100 transition-opacity">IA ✨</span>
-                        </li>
-                        <li class="flex items-center justify-between group cursor-pointer" onclick="askIAAbout('Responsabilidade Civil D&O/E&O')">
+                        <li class="cursor-pointer hover:text-white transition-colors">Empresarial & D&O</li>
+                        <li class="cursor-pointer hover:text-white transition-colors">Riscos Cibernéticos</li>
+                        <li class="cursor-pointer hover:text-white transition-colors">Seguro Agro</li>
+                        <li class="flex items-center justify-between group cursor-pointer" onclick="askIAAbout('Responsabilidade Civil')">
                             <span>Resp. Civil</span>
                             <span class="text-scsx-gold opacity-0 group-hover:opacity-100 transition-opacity">IA ✨</span>
                         </li>
@@ -316,7 +360,7 @@
                     <ul class="space-y-4 text-[11px] text-gray-400 uppercase tracking-widest">
                         <li class="flex items-center gap-3"><i class="fa-solid fa-phone text-scsx-gold"></i> +55 11 93769-6937</li>
                         <li class="flex items-center gap-3"><i class="fa-solid fa-envelope text-scsx-gold"></i> atendimento@scsx.com.br</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-location-dot text-scsx-gold"></i> São Paulo, SP</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-location-dot text-scsx-gold"></i> São Paulo, Brasil</li>
                     </ul>
                 </div>
                 <div>
@@ -355,13 +399,12 @@
                 </div>
             </div>
             <div id="aiInputArea">
-                <p class="text-sm text-gray-500 mb-6 leading-relaxed">Nossa inteligência artificial analisa seu perfil para propor uma blindagem patrimonial otimizada.</p>
                 <textarea id="aiPrompt" class="w-full h-32 p-5 border border-scsx-light bg-gray-50 rounded-sm focus:ring-1 focus:ring-scsx-gold outline-none text-sm mb-6 transition-all" placeholder="Ex: Analise os riscos para uma embarcação de luxo operando no litoral paulista..."></textarea>
                 <button onclick="generateAI()" class="w-full bg-scsx-dark text-white font-bold py-5 rounded-sm hover:bg-scsx-primary transition-all uppercase tracking-widest text-[10px] shadow-lg">Gerar Planejamento</button>
             </div>
             <div id="aiLoading" class="hidden py-12 text-center">
                 <div class="animate-spin h-10 w-10 border-2 border-scsx-gold border-t-transparent mx-auto mb-6 rounded-full"></div>
-                <p class="text-[10px] font-bold text-scsx-dark uppercase tracking-[0.4em]">Sincronizando Dados Globais...</p>
+                <p class="text-[10px] font-bold text-scsx-dark uppercase tracking-[0.4em]">Processando dados...</p>
             </div>
             <div id="aiResult" class="hidden mt-4">
                 <div id="aiTextContent" class="text-sm text-gray-700 bg-scsx-light p-8 rounded-sm leading-relaxed mb-8 border-l-2 border-scsx-gold max-h-[350px] overflow-y-auto"></div>
@@ -382,6 +425,15 @@
         }
         function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
 
+        function updateFileName(input) {
+            const fileNameDisplay = document.getElementById('fileNameDisplay');
+            if (input.files.length > 0) {
+                fileNameDisplay.textContent = `Selecionado: ${input.files[0].name}`;
+            } else {
+                fileNameDisplay.textContent = "";
+            }
+        }
+
         async function generateAI() {
             const prompt = document.getElementById('aiPrompt').value;
             if(!prompt) return;
@@ -401,7 +453,7 @@
                 const text = data.candidates?.[0]?.content?.parts?.[0]?.text || "Serviço temporariamente indisponível.";
                 document.getElementById('aiTextContent').innerText = text;
             } catch (e) {
-                document.getElementById('aiTextContent').innerText = "Erro na conexão. Nossos especialistas podem ajudar via WhatsApp.";
+                document.getElementById('aiTextContent').innerText = "Erro na conexão.";
             } finally {
                 document.getElementById('aiLoading').classList.add('hidden');
                 document.getElementById('aiResult').classList.remove('hidden');
