@@ -412,31 +412,50 @@
         }
         function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
 
-        async function generateAI() {
-            const prompt = document.getElementById('aiPrompt').value;
-            if(!prompt) return;
-            document.getElementById('aiInputArea').classList.add('hidden');
-            document.getElementById('aiLoading').classList.remove('hidden');
+async function generateAI() {
+    const prompt = document.getElementById('aiPrompt').value;
+    if(!prompt) return;
 
-            try {
-                const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        contents: [{ parts: [{ text: prompt }] }],
-                        systemInstruction: { parts: [{ text: "Você é o assistente virtual da SCSX Corretora de Seguros. Seu tom é executivo, exclusivo e técnico. Explique riscos específicos e sugira coberturas premium. Seja direto e profissional." }] }
-                    })
-                });
-                const data = await res.json();
-                const text = data.candidates?.[0]?.content?.parts?.[0]?.text || "Serviço temporariamente indisponível.";
-                document.getElementById('aiTextContent').innerText = text;
-            } catch (e) {
-                document.getElementById('aiTextContent').innerText = "Erro na conexão.";
-            } finally {
-                document.getElementById('aiLoading').classList.add('hidden');
-                document.getElementById('aiResult').classList.remove('hidden');
+    document.getElementById('aiInputArea').classList.add('hidden');
+    document.getElementById('aiLoading').classList.remove('hidden');
+    document.getElementById('aiResult').classList.add('hidden');
+
+    const systemMsg = "Você é o assistente virtual de elite da SCSX Corretora de Seguros. Seu tom é executivo, exclusivo e altamente técnico. Explique riscos específicos de forma clara e sugira coberturas premium adequadas ao perfil do cliente. Seja direto, organizado em pontos e profissional.";
+
+    try {
+        async function callGeminiAPI(userQuery, systemPrompt, retries = 5, delay = 1000) {
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+    const payload = {
+        contents: [{ parts: [{ text: userQuery }] }],
+        systemInstruction: { parts: [{ text: systemPrompt }] }
+    };
+
+    for (let i = 0; i < retries; i++) {
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                return result.candidates?.[0]?.content?.parts?.[0]?.text;
             }
+
+            if (response.status === 429 || response.status >= 500) {
+                await new Promise(resolve => setTimeout(resolve, delay));
+                delay *= 2; // Backoff exponencial
+                continue;
+            }
+            throw new Error(`Erro API: ${response.status}`);
+        } catch (error) {
+            if (i === retries - 1) throw error;
+            await new Promise(resolve => setTimeout(resolve, delay));
+            delay *= 2;
         }
+    }
+}
 
         function copyToForm() {
             const aiText = document.getElementById('aiTextContent').innerText;
@@ -473,6 +492,7 @@
     </script>
 </body>
 </html>
+
 
 
 
