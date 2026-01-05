@@ -83,7 +83,7 @@
                 <div class="flex justify-end items-center space-x-4">
                     <div class="hidden md:flex items-center space-x-4">
                         <button onclick="openAIDialog()" class="px-5 py-2.5 text-[9px] font-bold text-scsx-dark border border-scsx-dark hover:bg-scsx-dark hover:text-white transition-all rounded-sm uppercase tracking-widest">IA Vision ✨</button>
-                        <a href="#contato" class="px-6 py-2.5 text-[9px] font-bold text-white bg-scsx-dark hover:bg-scsx-primary transition-colors rounded-sm shadow-sm uppercase tracking-widest">Consultoria</a>
+                        <a href="#contato" class="px-6 py-2.5 text-[9px] font-bold text-white bg-scsx-dark hover:bg-scsx-primary transition-colors rounded-sm shadow-sm uppercase tracking-widest">Atendimento</a>
                     </div>
                     <button id="mobile-menu-btn" class="md:hidden text-gray-700 p-2"><i class="fa-solid fa-bars-staggered text-2xl"></i></button>
                 </div>
@@ -115,10 +115,10 @@
                     Excelência em <br class="hidden sm:block"> Proteção <span class="text-scsx-gold">Patrimonial</span>
                 </h1>
                 <p class="text-base md:text-xl text-gray-200 font-light mb-10 leading-relaxed max-w-2xl">
-                    Soluções desenhadas para quem exige o máximo. Garantimos excelência com atendimento 24/7 e suporte especializado.
+                    Soluções desenhadas para quem exige o máximo. Garantimos a tranquilidade com atendimento 24/7 e suporte especializado.
                 </p>
                 <div class="flex flex-col sm:flex-row flex-wrap gap-4">
-                    <a href="#contato" class="px-10 py-5 text-[10px] font-bold text-scsx-dark bg-white hover:bg-scsx-gold transition-all rounded-sm uppercase tracking-widest text-center shadow-2xl">Consultoria Exclusiva</a>
+                    <a href="#contato" class="px-10 py-5 text-[10px] font-bold text-scsx-dark bg-white hover:bg-scsx-gold transition-all rounded-sm uppercase tracking-widest text-center shadow-2xl">Atendimento Exclusiva</a>
                     <button onclick="openAIDialog()" class="px-10 py-5 text-[10px] font-bold text-white border border-white/30 bg-white/5 hover:bg-white/10 transition-all rounded-sm uppercase tracking-widest backdrop-blur-sm text-center">Simular com IA ✨</button>
                 </div>
             </div>
@@ -134,7 +134,7 @@
                     <h3 class="text-4xl md:text-6xl font-display font-extrabold text-scsx-dark uppercase tracking-tighter mb-8 leading-tight">Seu <span class="text-scsx-gold">Family Office</span> <br>para Riscos.</h3>
                     <div class="space-y-6 text-gray-600 text-lg leading-relaxed">
                         <p>
-                            A SCSX atua como uma extensão do seu planejamento financeiro. Nossa metodologia de <strong>Family Office para Riscos</strong> analisa profundamente sua exposição para criar apólice personalizadas.
+                            A SCSX atua como uma extensão do seu planejamento financeiro. Nossa metodologia de <strong>Family Office para Riscos</strong> analisa profundamente sua exposição para criar apólices bem calibradas.
                         </p>
                     </div>
                     
@@ -153,7 +153,7 @@
                         </div>
                         <div>
                             <p class="text-4xl md:text-5xl font-display font-extrabold text-scsx-dark uppercase tracking-tighter mb-2">500M+</p>
-                            <p class="text-[10px] font-bold text-scsx-gold uppercase tracking-[0.2em] opacity-80">Valor Segurado</p>
+                            <p class="text-[10px] font-bold text-scsx-gold uppercase tracking-[0.2em] opacity-80">Valor Segurado em 2025</p>
                         </div>
                     </div>
                 </div>
@@ -317,7 +317,7 @@
                 <div class="col-span-1">
                     <h4 class="text-white font-display font-extrabold text-2xl uppercase tracking-tighter mb-6">SCSX</h4>
                     <p class="text-sm text-gray-400 leading-relaxed uppercase tracking-wider text-[10px]">
-                        Seu Family Office para Riscos. Atuamos como uma extensão estratégica para te blindar patrimonios.
+                        Seu Family Office para Riscos. Atuamos com estratégia para blindar seu patrimonio.
                     </p>
                 </div>
                 <div>
@@ -353,8 +353,8 @@
                 <div>
                     <h4 class="text-scsx-gold font-bold text-[11px] uppercase tracking-widest mb-8">Siga-nos</h4>
                     <div class="flex gap-4">
-                        <a href="https://www.instagram.com/scsx_seguros?igsh=MWxxMW1ldnN4bzd6bA==" class="w-10 h-10 border border-white/10 rounded-sm flex items-center justify-center hover:bg-scsx-gold hover:text-white transition-all"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/company/scsx-corretora-de-seguros" class="w-10 h-10 border border-white/10 rounded-sm flex items-center justify-center hover:bg-scsx-gold hover:text-white transition-all"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 border border-white/10 rounded-sm flex items-center justify-center hover:bg-scsx-gold hover:text-white transition-all"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 border border-white/10 rounded-sm flex items-center justify-center hover:bg-scsx-gold hover:text-white transition-all"><i class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
@@ -401,6 +401,7 @@
     </div>
 
     <script>
+        // Chave vazia para uso do ambiente de visualização automático
         const apiKey = ""; 
         
         function openAIDialog() { document.getElementById('aiModal').style.display = 'flex'; }
@@ -412,50 +413,73 @@
         }
         function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
 
-async function generateAI() {
-    const prompt = document.getElementById('aiPrompt').value;
-    if(!prompt) return;
-
-    document.getElementById('aiInputArea').classList.add('hidden');
-    document.getElementById('aiLoading').classList.remove('hidden');
-    document.getElementById('aiResult').classList.add('hidden');
-
-    const systemMsg = "Você é o assistente virtual de elite da SCSX Corretora de Seguros. Seu tom é executivo, exclusivo e altamente técnico. Explique riscos específicos de forma clara e sugira coberturas premium adequadas ao perfil do cliente. Seja direto, organizado em pontos e profissional.";
-
-    try {
+        // Função de chamada à API com lógica de Retry e Backoff Exponencial
         async function callGeminiAPI(userQuery, systemPrompt, retries = 5, delay = 1000) {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-    const payload = {
-        contents: [{ parts: [{ text: userQuery }] }],
-        systemInstruction: { parts: [{ text: systemPrompt }] }
-    };
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] }
+            };
 
-    for (let i = 0; i < retries; i++) {
-        try {
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
 
-            if (response.ok) {
-                const result = await response.json();
-                return result.candidates?.[0]?.content?.parts?.[0]?.text;
+                    if (response.ok) {
+                        const result = await response.json();
+                        return result.candidates?.[0]?.content?.parts?.[0]?.text;
+                    }
+
+                    if (response.status === 429 || response.status >= 500) {
+                        // Espera antes da próxima tentativa (backoff exponencial)
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                        delay *= 2;
+                        continue;
+                    }
+                    
+                    throw new Error(`Erro API: ${response.status}`);
+                } catch (error) {
+                    if (i === retries - 1) throw error;
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    delay *= 2;
+                }
             }
-
-            if (response.status === 429 || response.status >= 500) {
-                await new Promise(resolve => setTimeout(resolve, delay));
-                delay *= 2; // Backoff exponencial
-                continue;
-            }
-            throw new Error(`Erro API: ${response.status}`);
-        } catch (error) {
-            if (i === retries - 1) throw error;
-            await new Promise(resolve => setTimeout(resolve, delay));
-            delay *= 2;
         }
-    }
-}
+
+        async function generateAI() {
+            const prompt = document.getElementById('aiPrompt').value;
+            if(!prompt) return;
+
+            document.getElementById('aiInputArea').classList.add('hidden');
+            document.getElementById('aiLoading').classList.remove('hidden');
+            document.getElementById('aiResult').classList.add('hidden');
+
+            const systemMsg = "Você é o assistente virtual de elite da SCSX Corretora de Seguros. Seu tom é executivo, exclusivo e altamente técnico. Explique riscos específicos de forma clara e sugira coberturas premium adequadas ao perfil do cliente. Seja direto, organizado em pontos e profissional.";
+
+            try {
+                const text = await callGeminiAPI(prompt, systemMsg);
+                if (text) {
+                    document.getElementById('aiTextContent').innerText = text;
+                    document.getElementById('aiLoading').classList.add('hidden');
+                    document.getElementById('aiResult').classList.remove('hidden');
+                } else {
+                    throw new Error("Resposta vazia");
+                }
+            } catch (e) {
+                document.getElementById('aiLoading').classList.add('hidden');
+                document.getElementById('aiInputArea').classList.remove('hidden');
+                // Exibe uma mensagem amigável no lugar do erro no console
+                const errorBox = document.createElement('p');
+                errorBox.className = "text-red-500 text-[10px] mt-2 font-bold uppercase tracking-widest text-center";
+                errorBox.innerText = "Ocorreu uma instabilidade na conexão. Por favor, tente novamente em instantes.";
+                document.getElementById('aiInputArea').appendChild(errorBox);
+                setTimeout(() => errorBox.remove(), 4000);
+            }
+        }
 
         function copyToForm() {
             const aiText = document.getElementById('aiTextContent').innerText;
@@ -467,7 +491,7 @@ async function generateAI() {
 
         async function askIAAbout(topic) {
             openAIDialog();
-            document.getElementById('aiPrompt').value = `Preciso de uma análise de blindagem para: ${topic}.`;
+            document.getElementById('aiPrompt').value = `Preciso de uma análise de blindagem estratégica para: ${topic}.`;
             generateAI();
         }
 
@@ -492,8 +516,3 @@ async function generateAI() {
     </script>
 </body>
 </html>
-
-
-
-
-
